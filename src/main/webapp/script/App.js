@@ -43,7 +43,7 @@ app.config(function($translateProvider, tmhDynamicLocaleProvider) {
 		PRODUTO_EXCLUIDO_COM_SUCESSO: 'Product successfully deleted.',
 	});
 	
-	tmhDynamicLocaleProvider.localeLocationPattern('lib/dependencies/angular-locale_{{locale}}.js');
+	tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
 });
 
 app.run(function($rootScope, $translate, tmhDynamicLocale) {
