@@ -12,7 +12,7 @@ app.factory('ApiService', function($http) {
 				codigo: produto.codigo
 		};
 		
-		return $http.delete('rest/produtos/' + produto.codigo, {params: params});
+		return $http['delete']('rest/produtos/' + produto.codigo, {params: params});
 	};
 	var _listarProdutos = function() {
 		return $http.get('rest/produtos');
