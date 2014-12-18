@@ -1,16 +1,8 @@
+'use strict';
+
 var app = angular.module('App');
 
-app.controller('ProdutoCtrl', function($scope, ApiService) {
-	var addMsgSucesso = function(msgSucesso) {
-		$scope.msgSucesso = msgSucesso;
-		
-		setTimeout(function() {
-			$scope.$apply(function () {
-				delete $scope.msgSucesso;
-	        });
-		}, 4000);
-	};
-	
+app.controller('ProdutoCtrl', function($scope, $rootScope, ApiService) {
 	var listarProdutos = function() {
 		ApiService.listarProdutos().success(function($data) {
 			$scope.produtos = $data;
@@ -34,7 +26,7 @@ app.controller('ProdutoCtrl', function($scope, ApiService) {
 		service.success(function() {
 			$scope.cancelarProduto();
 			
-			addMsgSucesso("PRODUTO_SALVO_COM_SUCESSO");
+			$rootScope.addMsgSucesso("PRODUTO_SALVO_COM_SUCESSO");
 			
 			listarProdutos();
 		});
@@ -48,7 +40,7 @@ app.controller('ProdutoCtrl', function($scope, ApiService) {
 		ApiService.excluirProduto(produto).success(function() {
 			listarProdutos();
 			
-			addMsgSucesso("PRODUTO_EXCLUIDO_COM_SUCESSO");
+			$rootScope.addMsgSucesso("PRODUTO_EXCLUIDO_COM_SUCESSO");
 		});
 	};
 	

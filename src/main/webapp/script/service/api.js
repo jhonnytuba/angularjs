@@ -1,3 +1,5 @@
+'use strict';
+
 var app = angular.module('App');
 
 app.factory('ApiService', function($http) {

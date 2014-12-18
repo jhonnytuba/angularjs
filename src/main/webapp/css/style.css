@@ -1,3 +1,30 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 60px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	line-height: 55px;
+	border: 0;
+	border-top: 1px solid #eee;
+}
+
+.clear-navbar-top {
+	margin-top: 75px;
+}
+
+.clear-navbar-bottom {
+	margin-bottom: 75px;
+}
+
 .panel-heading-btn {
 	padding: 10px 15px 0px 15px;
 }
@@ -5,4 +32,17 @@
 .btn-group-add {
 	position: relative;
 	top: -5px;
+}
+
+.menu-line-height {
+	line-height: 32px;
+}
+
+.menu-language {
+	padding: 10px 5px !important;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover,
+	.navbar-default .navbar-brand:focus, .navbar-default a {
+	color: #000;
 }

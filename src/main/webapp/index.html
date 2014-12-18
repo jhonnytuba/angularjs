@@ -11,123 +11,78 @@
 	
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/angular-translate/angular-translate.min.js"></script>
 	<script src="bower_components/angular-dynamic-locale/tmhDynamicLocale.min.js"></script>
 	<script src="lib/dependencies/angular-currency-mask.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	
-	<script src="script/App.js"></script>
-	<script src="script/service/ApiService.js"></script>
-	<script src="script/ctrl/ProdutoCtrl.js"></script>
-	
 	<title>{{'NOME_APLICACAO' | translate}}</title>
 </head>
 
-<body ng-controller="ProdutoCtrl">
-	<div class="container">
-		<div class="panel-header clearfix">
-			<h4 class="pull-left">{{'NOME_APLICACAO' | translate}}</h4>
-			
-			<div class="btn-group pull-right">
-				<a href="" ng-click="mudarLinguagem('pt-br')">
-					<img width="32" src="images/pt-BR.png" />
-				</a>
-				<a href="" ng-click="mudarLinguagem('en')">
-					<img width="32" src="images/en.png" />
+<body ng-cloak>
+	<header class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container clearfix">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-menu">
+					<span class="sr-only">{{'MENU' | translate}}</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				
+				<a class="navbar-brand" href="#/">
+					<strong>{{'NOME_APLICACAO' | translate}}</strong>
 				</a>
 			</div>
+			
+			<div class="collapse navbar-collapse" id="navbar-collapse-menu">
+				<ul class="nav nav-pills navbar-left">
+					<li role="presentation">
+						<a class="menu-line-height" href="#produtos">
+							<strong>{{'PRODUTOS' | translate}}</strong>
+						</a>
+					</li>
+				</ul>
+				
+				<ul class="nav nav-pills navbar-right">
+					<li role="presentation">
+						<a href="" ng-click="mudarLinguagem('pt-br')" class="menu-language">
+							<img width="32" src="images/pt-BR.png" />
+						</a>
+					</li>
+					<li role="presentation">
+						<a href="" ng-click="mudarLinguagem('en')" class="menu-language">
+							<img width="32" src="images/en.png" />
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-		
+	</header>
+	
+	<div class="container clear-navbar-top clear-navbar-bottom">
 		<div class="alert alert-success" role="alert" ng-if="msgSucesso">
 			{{msgSucesso | translate}}
 		</div>
 		
-		<div class="panel panel-default panel-primary">
-			<div class="panel-heading panel-heading-btn clearfix">
-				<div class="panel-title pull-left">{{'PRODUTOS' | translate}}</div>
-				
-				<div class="btn-group btn-group-add pull-right">
-					<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#modalProduto">
-						<span class="glyphicon glyphicon-plus"></span>
-						{{'ADICIONAR_PRODUTO' | translate}}
-					</button>
-				</div>
-			</div>
-			
-			<div class="panel-body">
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>{{'NOME_PRODUTO' | translate}}</th>
-							<th>{{'ESTOQUE_PRODUTO' | translate}}</th>
-							<th class="text-center">{{'PRECO_PRODUTO' | translate}}</th>
-							<th class="text-center">{{'OPCOES' | translate}}</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="produto in produtos">
-							<td>{{produto.codigo}}</td>
-							<td>{{produto.nome}}</td>
-							<td>{{produto.estoque | number}}</td>
-							<td align="right">{{produto.preco | currency}}</td>
-							<td align="center">
-								<a href="" ng-click="alterarProduto(produto)" data-toggle="modal" data-target="#modalProduto" title="{{'ALTERAR_PRODUTO' | translate}}">
-									<span class="glyphicon glyphicon-pencil"></span>
-								</a>
-								<a href="" ng-click="excluirProduto(produto)" title="{{'EXCLUIR_PRODUTO' | translate}}">
-									<span class="glyphicon glyphicon-remove"></span>
-								</a>
-							</td>
-						</tr>
-						
-						<tr ng-if="!produtos.length">
-							<td colspan="5">{{'NENHUM_REGISTRO' | translate}}</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="panel-footer panel-primary pull-right clearfix">
-				<a href="codigo_fonte/angularjs.zip">{{'DOWNLOAD_CODIGO_FONTE' | translate}}</a>
-			</div>
+		<div ng-view>
 		</div>
 	</div>
-
-	<div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="modalLabelProduto" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">&times;</span><span class="sr-only">{{'FECHAR_MODAL' | translate}}</span>
-					</button>
-					<h4 class="modal-title" id="modalLabelProduto">
-						{{produto.codigo ? 'ALTERAR_PRODUTO' : 'ADICIONAR_PRODUTO' | translate}}
-					</h4>
-				</div>
-				<div class="modal-body">
-					<form name="produtoForm" class="form">
-						<div class="form-group">
-							<label>{{'NOME_PRODUTO' | translate}} *</label>
-							<input name="nome" type="text" class="form-control" ng-model="produto.nome" ng-required="true" />
-						</div>
-						
-						<div class="form-group">
-							<label>{{'ESTOQUE_PRODUTO' | translate}} *</label>
-							<input name="estoque" type="number" class="form-control" ng-model="produto.estoque" ng-required="true" />
-						</div>
-						
-						<div class="form-group">
-							<label>{{'PRECO_PRODUTO' | translate}} *</label>
-							<input name="preco" type="text" class="form-control" ng-model="produto.preco" ng-required="true" currency-mask />
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="salvarProduto(produto)" ng-disabled="produtoForm.$invalid">{{'SALVAR_MODAL' | translate}}</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelarProduto()">{{'CANCELAR_MODAL' | translate}}</button>
-				</div>
-			</div>
+	
+	<footer class="footer">
+		<div class="container">
+			<ul class="nav">
+				<li class="text-center">{{'COPYRIGHT' | translate:'{ano: ' + dataHoje.getFullYear() + '}'}}</li>
+			</ul>
 		</div>
-	</div>
+	</footer>
+	
+	<script src="script/app.js"></script>
+	<script src="script/config/route.js"></script>
+	<script src="script/config/locale.js"></script>
+	<script src="script/config/translate.js"></script>
+	<script src="script/service/api.js"></script>
+	<script src="script/ctrl/produto.js"></script>
 </body>
 </html>
