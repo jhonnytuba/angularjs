@@ -46,3 +46,7 @@ body {
 	.navbar-default .navbar-brand:focus, .navbar-default a {
 	color: #000;
 }
+
+.autoscroll {
+	overflow: auto;
+}

@@ -10,5 +10,9 @@ app.config(function($routeProvider, $translateProvider, tmhDynamicLocaleProvider
 		.when('/produtos', {
 			templateUrl: 'pages/produtos.html',
 			controller: 'ProdutoCtrl'
+		})
+		.when('/chat', {
+			templateUrl: 'pages/chat.html',
+			controller: 'ChatCtrl'
 		});
 });

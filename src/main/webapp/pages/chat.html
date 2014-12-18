@@ -1,0 +1,31 @@
+<div class="panel panel-default panel-primary">
+	<div class="panel-heading">
+		<div class="panel-title">{{'CHAT' | translate}}</div>
+	</div>
+	
+	<div class="panel-body">
+		<div class="row autoscroll">
+			<div ng-repeat="mensagem in mensagens">
+				<div class="col-sm-12">
+					<strong>{{mensagem.usuario}}:</strong> <pre>{{mensagem.descricao}}</pre>
+				</div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<hr/>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-11">
+				<form class="form form-horizontal" name="chatForm">
+					<textarea class="form-control" ng-model="chatMensagem.descricao" ng-required="true"></textarea>
+				</form>
+			</div>
+			
+			<div class="col-sm-offset-1">
+				<button type="button" class="btn btn-default input-lg" ng-click="enviar(chatMensagem)" ng-disabled="chatForm.$invalid">{{'ENVIAR' | translate}}</button>
+			</div>
+		</div>
+	</div>
+</div>

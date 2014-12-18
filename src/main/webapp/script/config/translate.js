@@ -24,6 +24,8 @@ app.config(function($translateProvider) {
 		PRECO_PRODUTO: 'Preço',
 		PRODUTO_SALVO_COM_SUCESSO: 'Produto salvo com sucesso.',
 		PRODUTO_EXCLUIDO_COM_SUCESSO: 'Produto excluído com sucesso.',
+		
+		CHAT: 'Chat',
 	});
 	
 	$translateProvider.translations('en', {
@@ -47,5 +49,7 @@ app.config(function($translateProvider) {
 		PRECO_PRODUTO: 'Price',
 		PRODUTO_SALVO_COM_SUCESSO: 'Product successfully saved.',
 		PRODUTO_EXCLUIDO_COM_SUCESSO: 'Product successfully deleted.',
+		
+		CHAT: 'Chat',
 	});
 });
