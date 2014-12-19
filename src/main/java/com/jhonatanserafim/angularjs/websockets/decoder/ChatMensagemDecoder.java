@@ -24,7 +24,13 @@ public class ChatMensagemDecoder implements Decoder.Text<ChatMensagem> {
     public ChatMensagem decode(String s) throws DecodeException {
         JsonObject jsonObject = Json.createReader(new StringReader(s)).readObject();
         
-        return ChatMensagem.of(jsonObject.getString("usuario"))
+        String usuario = "Anônimo";
+        
+        if (jsonObject.containsKey("usuario")) {
+            usuario = jsonObject.getString("usuario");
+        }
+        
+        return ChatMensagem.of(usuario)
                 .withDescricao(jsonObject.getString("descricao"));
     }
 
