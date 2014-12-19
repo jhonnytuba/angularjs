@@ -47,6 +47,12 @@ body {
 	color: #000;
 }
 
-.autoscroll {
+.container-chat {
+	height: 300px;
 	overflow: auto;
+}
+
+.chat-hr {
+	margin-top: 5px;
+	margin-bottom: 15px;
 }

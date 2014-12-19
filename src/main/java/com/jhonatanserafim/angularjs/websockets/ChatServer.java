@@ -27,7 +27,6 @@ public class ChatServer {
     
     @OnOpen
     public void onOpen(Session session) {
-        enviarMensagem(session, ChatMensagem.of("Servidor").withDescricao("Seja Bem vindo!"));
     }
 
     @OnMessage

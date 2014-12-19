@@ -26,6 +26,7 @@ app.config(function($translateProvider) {
 		PRODUTO_EXCLUIDO_COM_SUCESSO: 'Produto excluído com sucesso.',
 		
 		CHAT: 'Chat',
+		ENTROU_CHAT: 'Entrou no chat',
 	});
 	
 	$translateProvider.translations('en', {
@@ -51,5 +52,6 @@ app.config(function($translateProvider) {
 		PRODUTO_EXCLUIDO_COM_SUCESSO: 'Product successfully deleted.',
 		
 		CHAT: 'Chat',
+		ENTROU_CHAT: 'Entrou no chat',
 	});
 });

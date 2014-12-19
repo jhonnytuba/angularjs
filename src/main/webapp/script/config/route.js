@@ -11,7 +11,7 @@ app.config(function($routeProvider, $translateProvider, tmhDynamicLocaleProvider
 			templateUrl: 'pages/produtos.html',
 			controller: 'ProdutoCtrl'
 		})
-		.when('/chat', {
+		.when('/chat/:usuario?', {
 			templateUrl: 'pages/chat.html',
 			controller: 'ChatCtrl'
 		});
