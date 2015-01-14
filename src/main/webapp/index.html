@@ -14,6 +14,7 @@
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/angular-translate/angular-translate.min.js"></script>
 	<script src="bower_components/angular-dynamic-locale/tmhDynamicLocale.min.js"></script>
+	<script src="bower_components/angular-directive.g-signin/google-plus-signin.js"></script>
 	<script src="lib/dependencies/angular-currency-mask.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	
@@ -70,6 +71,8 @@
 		<div class="alert alert-success" role="alert" ng-if="msgSucesso">
 			{{msgSucesso | translate}}
 		</div>
+		
+		<google-plus-signin clientid="708120214966-h84g9ue083qlhn56vlouj8phm9314s3t" language="{{key}}"></google-plus-signin>
 		
 		<div ng-view>
 		</div>
