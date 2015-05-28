@@ -1,0 +1,26 @@
+{
+  "name": "angular-currency-mask",
+  "version": "0.1.0-alpha",
+  "main": [
+    "angular-currency-mask.js"
+  ],
+  "ignore": [
+    ".gitignore",
+    "demo.html",
+    "README.md"
+  ],
+  "dependencies": {
+    "angular": ">=1.0.8"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/adamalbrecht/angular-currency-mask",
+  "_release": "0.1.0-alpha",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0-alpha",
+    "commit": "2383be6019682ee5dcb705428e14f808b0d146e3"
+  },
+  "_source": "git://github.com/adamalbrecht/angular-currency-mask.git",
+  "_target": ">=0.1.0-alpha",
+  "_originalSource": "angular-currency-mask"
+}

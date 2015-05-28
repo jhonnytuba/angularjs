@@ -1,0 +1,18 @@
+{
+  "name": "angular-directive.g-signin",
+  "version": "0.1.1",
+  "main": "./google-plus-signin.js",
+  "dependencies": {
+    "angular": "~1.2.0"
+  },
+  "homepage": "https://github.com/sirkitree/angular-directive.g-signin",
+  "_release": "0.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.1",
+    "commit": "8802d27a17a0b4442df6f19f76f142edcf3876cf"
+  },
+  "_source": "git://github.com/sirkitree/angular-directive.g-signin.git",
+  "_target": "*",
+  "_originalSource": "angular-directive.g-signin"
+}
