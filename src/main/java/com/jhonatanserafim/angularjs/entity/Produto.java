@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,6 +32,10 @@ public class Produto implements Serializable {
 	@NotNull
 	@Column(name = "NU_ESTOQUE", nullable = false)
 	private Integer estoque;
+	
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	private Status status = Status.ATIVO;
 	
 	public Long getCodigo() {
 		return codigo;
@@ -62,5 +68,13 @@ public class Produto implements Serializable {
 	public void setEstoque(Integer estoque) {
 		this.estoque = estoque;
 	}
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 	
 }

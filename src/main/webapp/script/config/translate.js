@@ -25,8 +25,14 @@ app.config(function($translateProvider) {
 		PRODUTO_SALVO_COM_SUCESSO: 'Produto salvo com sucesso.',
 		PRODUTO_EXCLUIDO_COM_SUCESSO: 'Produto excluído com sucesso.',
 		
+		STATUS: 'Status',
+		STATUS_ATIVO: 'Ativo',
+		STATUS_INATIVO: 'Inativo',
+		
 		CHAT: 'Chat',
 		ENTROU_CHAT: 'Entrou no chat',
+		
+		SELECIONE: 'Selecione'
 	});
 	
 	$translateProvider.translations('en', {
@@ -51,7 +57,13 @@ app.config(function($translateProvider) {
 		PRODUTO_SALVO_COM_SUCESSO: 'Product successfully saved.',
 		PRODUTO_EXCLUIDO_COM_SUCESSO: 'Product successfully deleted.',
 		
+		STATUS: 'Status',
+		STATUS_ATIVO: 'Active',
+		STATUS_INATIVO: 'Inactive',
+		
 		CHAT: 'Chat',
-		ENTROU_CHAT: 'Entrou no chat',
+		ENTROU_CHAT: 'Entered the chat',
+		
+		SELECIONE: 'Select'
 	});
 });

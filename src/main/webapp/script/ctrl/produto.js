@@ -9,6 +9,10 @@ app.controller('ProdutoCtrl', function($scope, $rootScope, ApiService) {
 		});
 	};
 	
+	ApiService.listarStatus().success(function($data) {
+		$scope.listaStatus = $data;
+	});
+	
 	$scope.cancelarProduto = function() {
 		delete $scope.produtoForm.$setPristine();
 		delete $scope.produto;

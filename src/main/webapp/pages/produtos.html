@@ -27,6 +27,7 @@
 					<td>{{produto.nome}}</td>
 					<td>{{produto.estoque | number}}</td>
 					<td align="right">{{produto.preco | currency}}</td>
+					<td align="center">{{'STATUS_' + produto.status | translate}}</td>
 					<td align="center">
 						<a href="" ng-click="alterarProduto(produto)" data-toggle="modal" data-target="#modalProduto" title="{{'ALTERAR_PRODUTO' | translate}}">
 							<span class="glyphicon glyphicon-pencil"></span>
@@ -71,6 +72,14 @@
 					<div class="form-group">
 						<label>{{'PRECO_PRODUTO' | translate}} *</label>
 						<input name="preco" type="text" class="form-control" ng-model="produto.preco" ng-required="true" currency-mask />
+					</div>
+					
+					<div class="form-group">
+						<label>{{'STATUS' | translate}} *</label>
+						<select name="status" class="form-control">
+							<option>{{'SELECIONE' | translate}}</option>
+							<option ng-repeat="status in listaStatus">{{'STATUS_' + status | translate}}</option>
+						</select>
 					</div>
 				</form>
 			</div>
