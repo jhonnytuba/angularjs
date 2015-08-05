@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('App', [ 'ngRoute', 'pascalprecht.translate', 'tmh.dynamicLocale', 'currencyMask', 'directive.g+signin' ]);
+var app = angular.module('App', [ 'ngRoute', 'pascalprecht.translate', 'tmh.dynamicLocale', 'currencyMask', 'directive.g+signin', 'isteven-multi-select' ]);
 
 app.run(function($rootScope, $translate, tmhDynamicLocale) {
 	$rootScope.dataHoje = new Date();

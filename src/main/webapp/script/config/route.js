@@ -5,7 +5,8 @@ var app = angular.module('App');
 app.config(function($routeProvider, $translateProvider, tmhDynamicLocaleProvider) {
 	$routeProvider
 		.when('/', {
-			templateUrl: 'pages/inicio.html'
+			templateUrl: 'pages/inicio.html',
+			controller: 'InicioCtrl'
 		})
 		.when('/produtos', {
 			templateUrl: 'pages/produtos.html',
